@@ -4,7 +4,7 @@ function nodeHtmlGenerator (parentID = 0 ,ID = 0 , title = "без назви" ,
     return `
         <ul style='list-style-type: none;'>
         <li data-parent-id='${parentID}' data-id='${ID}'> ${title} 
-        <input type="text"  data-id='${ID}' placeholder='назва дочірньої ноди' value="${title}"> 
+        <input type="text"  data-id='${ID}' placeholder='назва дочірньої ноди' value=""> 
         <button data-parent-id='${parentID}' data-id='${ID}' class='add btn btn-success'>Добати дочірній вузол</button>
         <button data-parent-id='${parentID}'  data-id='${ID}' class='delete-button delete btn btn-danger'> Видалити вузол</button> 
         ${html}
