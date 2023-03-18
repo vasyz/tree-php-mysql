@@ -4,7 +4,7 @@
 
 `docker-compose up`
 
- щоб додати таблицю смикаєм за `http://localhost/cteate-db.php` 
+ щоб додати таблицю смикаєм за `http://localhost/init-db.php` 
 
 **заходм на localhost і клацаєм**
  
