@@ -1,5 +1,5 @@
 
-function nodeHtmlGenerator (parentID = 0 ,ID = 0 , title = "без назви" , html = '')
+function nodeHtmlGenerator (parentID = 0 ,ID = 0 , title = "" , html = '')
 {
     return `
         <ul style='list-style-type: none;'>
@@ -33,7 +33,7 @@ function nodeGenerator  (object)
 function getAllNodes ()
 {
     $.ajax({
-        url: 'get-tree.php',
+        url: '/ajax.php?action=get_tree',
         method: 'POST',
         success: function(response) {
 
@@ -45,7 +45,7 @@ function getAllNodes ()
 function deleteNode (node_id)
 {
     $.ajax({
-        url: 'delete-node.php',
+        url: '/ajax.php?action=delete_node',
         method: 'POST',
         data: {node_id:node_id},
         success: function(response) {
@@ -57,7 +57,7 @@ function deleteNode (node_id)
 function createNode (parent_id,title)
 {
     $.ajax({
-        url: 'create-node.php',
+        url: '/ajax.php?action=create_node',
         method: 'POST',
         data:  {parent_id , title },
         success: function(response) {
@@ -70,14 +70,13 @@ getAllNodes ()
 $(document).ready(function () {
 
     $("#create-root").click(function () {
-     createNode(null, "Корневий вузол root")
+     createNode(null, "вузол root")
     });
 
     $('#tree').on('click', '.add', function () {
         let parentID = $(this).attr('data-id');
         createNode(parentID, $(`input[data-id="${parentID}"]`).val() )
     });
-    // Відобразити попап
     $(document).on("click",".delete-button" , function() {
         clearInterval();
         timerCountDown ()

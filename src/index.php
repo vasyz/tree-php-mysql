@@ -12,7 +12,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-<button id="create-root" class="btn btn-success">Створити корневий вузол</button>
+<button id="create-root" class="btn btn-success">Вузол root</button>
 
 <div id="tree"></div>
 
