@@ -1,18 +1,15 @@
 <?php
 require_once('db.php');
+require_once('response.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $node_id = $_POST['node_id'];
+    $node_id = intval($_POST['node_id']);
+
     $db =  new DB();
-    $db->deleteNode($node_id);
 
-
+    response($db->deleteNode($node_id));
 }
 
-
-
-header('Content-Type: application/json');
-echo json_encode(["status" => true]);
 
 

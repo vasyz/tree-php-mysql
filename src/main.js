@@ -5,8 +5,8 @@ function nodeHtmlGenerator (parentID = 0 ,ID = 0 , title = "без назви" ,
         <ul style='list-style-type: none;'>
         <li data-parent-id='${parentID}' data-id='${ID}'> ${title} 
         <input type="text"  data-id='${ID}' placeholder='назва дочірньої ноди' value=""> 
-        <button data-parent-id='${parentID}' data-id='${ID}' class='add btn btn-success'>Добати дочірній вузол</button>
-        <button data-parent-id='${parentID}'  data-id='${ID}' class='delete-button delete btn btn-danger'> Видалити вузол</button> 
+        <button data-parent-id='${parentID}' data-id='${ID}' class='add btn btn-success'>+</button>
+        <button data-parent-id='${parentID}'  data-id='${ID}' class='delete-button delete btn btn-danger'> -</button> 
         ${html}
         </li>
         </ul>`;
@@ -88,17 +88,19 @@ $(document).ready(function () {
 
 });
 let timer
-function timerCountDown ()
-{
+function timerCountDown() {
     let countdown = 30;
-     timer = setInterval(function() {
-        if (countdown > 0) {
+
+    timer = setInterval(function() {
+        if (countdown > 0 && $('#popup').hasClass('show')) {
             $('#countdown').text(countdown);
             countdown--;
         } else {
             countdown = 30;
             clearInterval(timer);
-            $('#popup').modal('hide');
+            if ($('#popup').hasClass('show')) {
+                $('#popup').modal('hide');
+            }
         }
     }, 1000);
 }

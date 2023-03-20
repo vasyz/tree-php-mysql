@@ -1,6 +1,6 @@
 <?php
 
-$host = 'mysql'; // посилання в  докеру до бази
+$host = 'mysql';
 $dbname = 'homestead';
 $user = 'homestead';
 $password = 'secret';
